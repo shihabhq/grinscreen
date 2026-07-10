@@ -16,10 +16,10 @@ export function Services() {
           </h2>
         </Reveal>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-bg">
           {services.map((service, i) => (
             <Reveal key={service.id} delay={i * 0.05}>
-              <div className="bg-bg p-8 hover:bg-surface-2 transition-colors duration-300 group h-full">
+              <div className="bg-surface p-8 hover:bg-surface-2 transition-colors duration-300 group h-full">
                 <span className="block text-2xl text-brand-bright mb-4 group-hover:scale-110 transition-transform duration-300 inline-block">
                   {service.icon}
                 </span>

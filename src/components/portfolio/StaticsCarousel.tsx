@@ -4,17 +4,9 @@ import useEmblaCarousel from "embla-carousel-react";
 import { useEffect } from "react";
 import Image from "next/image";
 import { useReducedMotion } from "motion/react";
-import { staticProjects } from "@/data/statics";
+import { statics } from "@/data/statics";
 
-// Flatten all images and triple-duplicate for infinite feel
-const allSlides = staticProjects.flatMap((project) =>
-  project.images.map((src, i) => ({
-    src,
-    label: project.images.length > 1 ? `${project.title} ${i + 1}` : project.title,
-    client: project.client,
-  }))
-);
-const slides = [...allSlides, ...allSlides, ...allSlides];
+const slides = [...statics, ...statics, ...statics];
 
 const AUTO_DELAY = 2200;
 
@@ -27,7 +19,6 @@ export function StaticsCarousel() {
     duration: 30,
   });
 
-  // Auto-advance one slide at a time
   useEffect(() => {
     if (!emblaApi || prefersReduced) return;
     const timer = setInterval(() => emblaApi.scrollNext(), AUTO_DELAY);
@@ -37,28 +28,20 @@ export function StaticsCarousel() {
   return (
     <div className="overflow-hidden" ref={emblaRef}>
       <div className="flex gap-3">
-        {slides.map((slide, i) => (
+        {slides.map((src, i) => (
           <div
-            key={`${slide.src}-${i}`}
-            // Show ~4-5 at once: 22% on desktop, 60% on mobile
+            key={`${src}-${i}`}
             className="flex-none w-[60%] sm:w-[30%] md:w-[22%]"
           >
             <div className="relative rounded-lg overflow-hidden" style={{ aspectRatio: "3/4" }}>
               <Image
-                src={slide.src}
-                alt={slide.label}
+                src={src}
+                alt={`Static design ${(i % statics.length) + 1}`}
                 fill
                 className="object-cover"
                 sizes="(max-width: 640px) 60vw, (max-width: 1024px) 30vw, 22vw"
                 loading={i < 5 ? "eager" : "lazy"}
               />
-              {/* Label on hover */}
-              <div className="absolute inset-0 bg-gradient-to-t from-bg/80 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3">
-                <p className="font-display font-semibold text-fg text-xs">{slide.label}</p>
-                {slide.client && (
-                  <p className="font-mono text-xs text-fg-muted">{slide.client}</p>
-                )}
-              </div>
             </div>
           </div>
         ))}

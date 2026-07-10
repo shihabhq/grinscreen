@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { reels } from "@/data/reels";
+import { statics } from "@/data/statics";
 import { clients } from "@/data/clients";
 import { LazyVideo } from "@/components/media/LazyVideo";
 import { StaticsCarousel } from "@/components/portfolio/StaticsCarousel";
