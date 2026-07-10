@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(du -sh \"E:/Code V2/griscreen/public/gs-videos/\"*)",
+      "Bash(ffmpeg -version)",
+      "Bash(where ffmpeg:*)",
+      "Bash(ffmpeg.exe -version)",
+      "Bash(cmd.exe /c \"where ffmpeg\" 2>&1)",
+      "Bash(cmd.exe /c \"winget install --id Gyan.FFmpeg -e --accept-source-agreements --accept-package-agreements\" 2>&1)",
+      "Bash(cmd.exe /c \"winget install ffmpeg\" 2>&1)",
+      "Bash(cmd.exe /c \"winget install --id Gyan.FFmpeg -e --accept-source-agreements --accept-package-agreements 2>&1\")",
+      "Bash(powershell.exe -Command \"winget install --id Gyan.FFmpeg -e --accept-source-agreements --accept-package-agreements\" 2>&1)",
+      "Bash(mkdir -p \"E:/Code V2/griscreen/public/reels\")",
+      "Bash(powershell.exe -Command \"ffmpeg -version\")",
+      "Bash(powershell.exe -Command \"\n\\\\$input_dir = 'E:\\\\\\\\Code V2\\\\\\\\griscreen\\\\\\\\public\\\\\\\\gs-videos'\n\\\\$output_dir = 'E:\\\\\\\\Code V2\\\\\\\\griscreen\\\\\\\\public\\\\\\\\reels'\n\\\\$videos = @\\('ambience','aug-reel','cnb-teaser','compilation','desert1','food','ghibli-art','Interior','outlet','outlet-opening','reel-1','reel-1-2','reel-2-3','thumb','zuhrah'\\)\nforeach \\(\\\\$v in \\\\$videos\\) {\n    Write-Host \\\\\"Compressing \\\\$v...\\\\\"\n    ffmpeg -i \\\\\"\\\\$input_dir\\\\\\\\\\\\$v.mp4\\\\\" -vcodec libx264 -crf 28 -preset slow -acodec aac -b:a 128k -movflags +faststart \\\\\"\\\\$output_dir\\\\\\\\\\\\$v.mp4\\\\\" -y 2>&1 | Select-String 'frame=|error|Error' | Select-Object -Last 3\n    Write-Host \\\\\"Done: \\\\$v\\\\\"\n}\nWrite-Host 'All videos compressed!'\n\" 2>&1)",
+      "Bash(powershell.exe -ExecutionPolicy Bypass -File \"E:\\\\Code V2\\\\griscreen\\\\compress_videos.ps1\" 2>&1)"
+    ]
+  }
+}
