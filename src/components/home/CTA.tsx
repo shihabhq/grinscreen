@@ -23,7 +23,7 @@ export function CTA() {
           </p>
           <Link
             href="/contact"
-            className="inline-flex px-8 py-4 rounded-full bg-brand-bright text-bg font-semibold text-lg hover:bg-brand-glow transition-colors duration-200"
+            className="inline-flex px-8 py-4 rounded-full bg-brand-bright text-white font-semibold text-lg hover:bg-brand-glow transition-colors duration-200"
           >
             Start a Project
           </Link>

@@ -4,8 +4,7 @@ import { useRef, useEffect, useState, useCallback } from "react";
 import { useReducedMotion } from "motion/react";
 import { clsx } from "clsx";
 
-const MAX_CONCURRENT = 3;
-let activePlayers = 0;
+// No concurrent cap — all visible reels autoplay
 
 interface LazyVideoProps {
   src: string;
@@ -27,22 +26,17 @@ export function LazyVideo({ src, poster, className, priority = false, title }: L
 
   const tryPlay = useCallback(async (video: HTMLVideoElement) => {
     if (prefersReduced) return;
-    if (activePlayers >= MAX_CONCURRENT) return;
     try {
-      activePlayers++;
       await video.play();
     } catch {
-      activePlayers = Math.max(0, activePlayers - 1);
+      // Autoplay blocked — poster stays visible
     }
   }, [prefersReduced]);
 
   const doPause = useCallback(() => {
     const video = videoRef.current;
     if (!video) return;
-    if (!video.paused) {
-      video.pause();
-      activePlayers = Math.max(0, activePlayers - 1);
-    }
+    if (!video.paused) video.pause();
     setPlaying(false);
   }, []);
 

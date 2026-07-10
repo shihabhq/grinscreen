@@ -49,18 +49,15 @@ export function Navbar() {
         )}
       >
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 shrink-0" onClick={closeDrawer}>
+          <Link href="/" className="flex items-center shrink-0" onClick={closeDrawer}>
             <Image
-              src="/grinscreen/logo.png"
+              src="/grinscreen/grinscreen-logo.png"
               alt="Grinscreen Digital"
-              width={36}
-              height={36}
-              className="w-9 h-9 object-contain"
+              width={180}
+              height={48}
+              className="h-10 w-auto object-contain"
               priority
             />
-            <span className="font-display font-bold text-fg text-sm tracking-tight hidden sm:block">
-              Grinscreen
-            </span>
           </Link>
 
           {/* Desktop nav */}
@@ -81,7 +78,7 @@ export function Navbar() {
             ))}
             <Link
               href="/contact"
-              className="ml-4 px-4 py-2 rounded-full bg-brand-bright text-bg text-sm font-semibold hover:bg-brand-glow transition-colors duration-200"
+              className="ml-4 px-4 py-2 rounded-full bg-brand-bright text-white text-sm font-semibold hover:bg-brand-glow transition-colors duration-200"
             >
               Get Started
             </Link>
@@ -156,7 +153,7 @@ export function Navbar() {
                 <Link
                   href="/contact"
                   onClick={closeDrawer}
-                  className="inline-flex px-6 py-3 rounded-full bg-brand-bright text-bg font-semibold text-lg hover:bg-brand-glow transition-colors"
+                  className="inline-flex px-6 py-3 rounded-full bg-brand-bright text-white font-semibold text-lg hover:bg-brand-glow transition-colors"
                 >
                   Get Started
                 </Link>

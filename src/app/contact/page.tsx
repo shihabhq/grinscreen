@@ -1,82 +1,147 @@
 import type { Metadata } from "next";
-import { ContactForm } from "@/components/contact/ContactForm";
 import { Reveal } from "@/components/ui/Reveal";
 import { site } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Get in touch with Grinscreen Digital. Tell us about your brand and let's build something amazing together.",
+  description: "Get in touch with Grinscreen Digital — call, WhatsApp, or email us.",
 };
+
+const phone = "01886189297";
+const phoneDisplay = "01886-189297";
+const email = "contactgrinscreen@gmail.com";
+
+const contactMethods = [
+  {
+    label: "Email",
+    value: email,
+    href: `mailto:${email}`,
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="2" y="4" width="20" height="16" rx="2" />
+        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+      </svg>
+    ),
+    description: "We reply within 24 hours",
+  },
+  {
+    label: "Call",
+    value: phoneDisplay,
+    href: `tel:+880${phone}`,
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.61 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.18 6.18l.95-.95a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+      </svg>
+    ),
+    description: "Available during business hours",
+  },
+  {
+    label: "WhatsApp",
+    value: phoneDisplay,
+    href: `https://wa.me/880${phone}`,
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z" />
+      </svg>
+    ),
+    description: "Quick response on WhatsApp",
+    external: true,
+  },
+];
+
+const socialLinks = [
+  {
+    label: "Facebook",
+    href: site.socials.facebook,
+    handle: "@GrinScreenDigital",
+  },
+  {
+    label: "Instagram",
+    href: site.socials.instagram,
+    handle: "@grinscreen.digital",
+  },
+  {
+    label: "LinkedIn",
+    href: site.socials.linkedin,
+    handle: "Grinscreen Digital",
+  },
+];
 
 export default function ContactPage() {
   return (
     <div className="pt-24">
-      <section className="py-20 px-6 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          {/* Left */}
-          <div>
-            <Reveal>
-              <p className="font-mono text-brand-bright text-xs uppercase tracking-widest mb-4">Get in Touch</p>
-              <h1
-                className="font-display font-bold text-fg mb-6"
-                style={{ fontSize: "clamp(2.5rem, 5vw, 4.5rem)" }}
+      <section className="py-20 px-6 max-w-5xl mx-auto">
+        {/* Header */}
+        <Reveal>
+          <p className="font-mono text-brand-bright text-xs uppercase tracking-widest mb-4">Get in Touch</p>
+          <h1
+            className="font-display font-bold text-fg mb-6"
+            style={{ fontSize: "clamp(2.5rem, 5vw, 4.5rem)" }}
+          >
+            Let&apos;s build<br />
+            something<br />
+            <span className="text-brand-bright">remarkable.</span>
+          </h1>
+          <p className="text-fg-muted text-lg leading-relaxed mb-16 max-w-lg">
+            Reach out via email, phone, or WhatsApp — we&apos;re quick to respond and ready to help your brand grow.
+          </p>
+        </Reveal>
+
+        {/* Contact method cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-20">
+          {contactMethods.map((method, i) => (
+            <Reveal key={method.label} delay={i * 0.08}>
+              <a
+                href={method.href}
+                target={method.external ? "_blank" : undefined}
+                rel={method.external ? "noopener noreferrer" : undefined}
+                className="group flex flex-col gap-5 p-7 rounded-2xl border border-border bg-surface hover:border-brand-bright/40 hover:bg-surface-2 transition-all duration-300"
               >
-                Let&apos;s build<br />
-                something<br />
-                <span className="text-brand-bright">remarkable.</span>
-              </h1>
-              <p className="text-fg-muted text-lg leading-relaxed mb-10 max-w-sm">
-                Tell us about your brand and what you&apos;re looking to achieve. We&apos;ll get back to you within 24 hours.
-              </p>
+                <span className="w-12 h-12 rounded-xl bg-brand/10 flex items-center justify-center text-brand-bright group-hover:bg-brand/20 transition-colors duration-300">
+                  {method.icon}
+                </span>
+                <div>
+                  <p className="font-mono text-xs text-fg-muted uppercase tracking-widest mb-1">{method.label}</p>
+                  <p className="font-display font-semibold text-fg text-lg group-hover:text-brand-bright transition-colors duration-200">
+                    {method.value}
+                  </p>
+                  <p className="text-fg-muted text-sm mt-1">{method.description}</p>
+                </div>
+                <span className="text-fg-muted group-hover:text-brand-bright transition-colors duration-200 text-sm font-medium">
+                  {method.label === "Email" ? "Send email →" : method.label === "Call" ? "Call now →" : "Open WhatsApp →"}
+                </span>
+              </a>
             </Reveal>
-
-            <Reveal delay={0.1}>
-              <div className="flex flex-col gap-4">
-                {site.contact.email !== "PLACEHOLDER_EMAIL" && (
-                  <a
-                    href={`mailto:${site.contact.email}`}
-                    className="flex items-center gap-3 text-fg-muted hover:text-fg transition-colors"
-                  >
-                    <span className="text-brand-bright">@</span>
-                    {site.contact.email}
-                  </a>
-                )}
-                <a
-                  href={site.socials.facebook}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 text-fg-muted hover:text-fg transition-colors"
-                >
-                  <span className="text-brand-bright">↗</span>
-                  Facebook
-                </a>
-                <a
-                  href={site.socials.instagram}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 text-fg-muted hover:text-fg transition-colors"
-                >
-                  <span className="text-brand-bright">↗</span>
-                  Instagram
-                </a>
-                <a
-                  href={site.socials.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 text-fg-muted hover:text-fg transition-colors"
-                >
-                  <span className="text-brand-bright">↗</span>
-                  LinkedIn
-                </a>
-              </div>
-            </Reveal>
-          </div>
-
-          {/* Right — form */}
-          <Reveal delay={0.15}>
-            <ContactForm />
-          </Reveal>
+          ))}
         </div>
+
+        {/* Divider */}
+        <div className="border-t border-border mb-16" />
+
+        {/* Social links */}
+        <Reveal>
+          <p className="font-mono text-brand-bright text-xs uppercase tracking-widest mb-8">Follow Us</p>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            {socialLinks.map((social, i) => (
+              <Reveal key={social.label} delay={i * 0.06}>
+                <a
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center justify-between p-5 rounded-xl border border-border hover:border-brand-bright/40 hover:bg-surface transition-all duration-300"
+                >
+                  <div>
+                    <p className="font-display font-semibold text-fg text-base group-hover:text-brand-bright transition-colors duration-200">
+                      {social.label}
+                    </p>
+                    <p className="text-fg-muted text-sm mt-0.5">{social.handle}</p>
+                  </div>
+                  <span className="text-fg-muted group-hover:text-brand-bright transition-colors duration-200 text-xl">↗</span>
+                </a>
+              </Reveal>
+            ))}
+          </div>
+        </Reveal>
       </section>
     </div>
   );

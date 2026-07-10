@@ -41,6 +41,10 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
   },
+  icons: {
+    icon: "/grinscreen/logo.png",
+    apple: "/grinscreen/logo.png",
+  },
 };
 
 export default function RootLayout({

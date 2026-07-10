@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import { reels } from "@/data/reels";
-import { staticProjects } from "@/data/statics";
 import { clients } from "@/data/clients";
 import { LazyVideo } from "@/components/media/LazyVideo";
-import { Carousel } from "@/components/ui/Carousel";
+import { StaticsCarousel } from "@/components/portfolio/StaticsCarousel";
 import { Reveal } from "@/components/ui/Reveal";
 import Image from "next/image";
 
@@ -60,31 +59,14 @@ export default function PortfolioPage() {
         </div>
       </section>
 
-      {/* Static designs */}
-      <section className="py-24 px-6 bg-surface">
-        <div className="max-w-7xl mx-auto">
-          <Reveal className="mb-10">
+      {/* Static designs — multi-image auto-advancing carousel */}
+      <section className="py-24 bg-surface">
+        <div className="max-w-7xl mx-auto px-6 mb-10">
+          <Reveal>
             <h2 className="font-display font-semibold text-fg text-2xl">Static Designs</h2>
           </Reveal>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {staticProjects.map((project, i) => (
-              <Reveal key={project.id} delay={i * 0.08}>
-                <div>
-                  <Carousel images={project.images} title={project.title} aspectRatio="1/1" />
-                  <div className="mt-3">
-                    <p className="font-display font-semibold text-fg text-sm">{project.title}</p>
-                    {project.client && (
-                      <p className="font-mono text-xs text-fg-muted mt-0.5">{project.client}</p>
-                    )}
-                    {project.images.length > 1 && (
-                      <p className="font-mono text-xs text-brand-bright/60 mt-0.5">{project.images.length} designs</p>
-                    )}
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
         </div>
+        <StaticsCarousel />
       </section>
 
       {/* Client wall */}
@@ -100,16 +82,16 @@ export default function PortfolioPage() {
               <span className="text-fg-muted">one goal.</span>
             </h2>
           </Reveal>
-          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-6">
+          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-6">
             {clients.map((client, i) => (
               <Reveal key={client.id} delay={Math.min(i * 0.03, 0.4)}>
-                <div className="flex items-center justify-center p-3 rounded-lg hover:bg-surface-2 transition-colors duration-200 group">
+                <div className="flex items-center justify-center p-4 rounded-xl hover:bg-surface-2 transition-colors duration-200 group">
                   <Image
                     src={client.logo}
                     alt={client.name}
-                    width={80}
-                    height={60}
-                    className="max-h-12 w-auto object-contain opacity-50 grayscale group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-300"
+                    width={120}
+                    height={72}
+                    className="max-h-16 w-auto object-contain opacity-50 grayscale group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-300"
                     unoptimized
                   />
                 </div>
