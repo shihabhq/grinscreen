@@ -1,26 +1,68 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* Colors */
+  --color-bg:            #0A0B0A;
+  --color-surface:       #101311;
+  --color-surface-2:     #161A17;
+  --color-border:        #22271F;
+  --color-brand:         #0E8616;
+  --color-brand-bright:  #16C138;
+  --color-brand-glow:    #2BE862;
+  --color-deep:          #06210E;
+  --color-fg:            #E9EDE8;
+  --color-fg-muted:      #9AA69A;
+
+  /* Typography */
+  --font-display: var(--font-space-grotesk), "Space Grotesk", sans-serif;
+  --font-sans:    var(--font-inter), "Inter", sans-serif;
+  --font-mono:    var(--font-geist-mono), "Geist Mono", monospace;
+
+  /* Easing */
+  --ease-out-expo: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  html {
+    background-color: var(--color-bg);
+    color: var(--color-fg);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: var(--color-bg);
+    min-height: 100dvh;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+
+  ::selection {
+    background-color: color-mix(in srgb, var(--color-brand-bright) 30%, transparent);
+    color: var(--color-fg);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-brand-glow);
+    outline-offset: 3px;
+    border-radius: 3px;
   }
 }
 
-body {
-  background: #15a028;
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none !important;
+  }
 }

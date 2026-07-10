@@ -1,43 +1,19 @@
-import type { Metadata } from "next";
+import { Hero } from "@/components/home/Hero";
+import { Services } from "@/components/home/Services";
+import { ReelShowcase } from "@/components/home/ReelShowcase";
+import { ClientMarquee } from "@/components/home/ClientMarquee";
+import { Stats } from "@/components/home/Stats";
+import { CTA } from "@/components/home/CTA";
 
-export const metadata: Metadata = {
-  title: "GrinScreen Digital — Launching Soon",
-  description:
-    "GrinScreen Digital is launching soon. Follow us on Instagram @grinscreen.digital and Facebook for updates.",
-  openGraph: {
-    images: ["/coming-soon.jpg"],
-  },
-};
-
-export default function Home() {
+export default function HomePage() {
   return (
     <>
-      {/* Preload desktop image — Next.js App Router hoists <link> to <head> */}
-      <link
-        rel="preload"
-        as="image"
-        href="/coming-soon.jpg"
-        media="(min-width: 1024px)"
-      />
-      <div className="w-screen h-screen overflow-hidden">
-        <picture>
-          <source
-            media="(max-width: 639px)"
-            srcSet="/coming-soon-mobile.png"
-          />
-          <source
-            media="(min-width: 640px) and (max-width: 1023px)"
-            srcSet="/coming-soon-tablet-potrait.png"
-          />
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/coming-soon.jpg"
-            alt="GrinScreen Digital — Launching Soon. Follow @grinscreen.digital on Instagram and Facebook."
-            fetchPriority="high"
-            className="w-full h-full object-cover object-center block"
-          />
-        </picture>
-      </div>
+      <Hero />
+      <Services />
+      <ReelShowcase />
+      <ClientMarquee />
+      <Stats />
+      <CTA />
     </>
   );
 }
