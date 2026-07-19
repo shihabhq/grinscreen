@@ -25,7 +25,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Grinscreen Digital — Reels that go viral",
+    default: "Grinscreen Digital  Reels that go viral",
     template: "%s | Grinscreen Digital",
   },
   description:
@@ -42,7 +42,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
   },
   icons: {
-    icon: "/grinscreen/logo.png",
     apple: "/grinscreen/logo.png",
   },
 };

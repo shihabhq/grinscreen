@@ -20,7 +20,25 @@
       "Bash(powershell -ExecutionPolicy Bypass -File \"scripts/rename-clients.ps1\")",
       "Bash(npm i:*)",
       "Bash(node -e \"const p = require\\(''./package.json''\\); console.log\\(Object.keys\\(p.dependencies\\).join\\('', ''\\)\\)\")",
-      "Bash(npm run:*)"
+      "Bash(npm run:*)",
+      "Bash(pdftotext:*)",
+      "Read(//tmp/**)",
+      "Bash(pdfinfo \"E:/Code V2/griscreen/case-study/case-study.pdf\")",
+      "Bash(python3:*)",
+      "Bash(pdfimages -list \"E:/Code V2/griscreen/case-study/case-study.pdf\")",
+      "Bash(pdftohtml \"E:/Code V2/griscreen/case-study/case-study.pdf\" /tmp/case-study.html)",
+      "Bash(where magick:*)",
+      "Bash(where convert:*)",
+      "Bash(where gs:*)",
+      "Bash(where mupdf:*)",
+      "Bash(node -e \":*)",
+      "Bash(where pdftotext:*)",
+      "Read(//c/Program Files/**)",
+      "Read(//c/tools/poppler/bin/**)",
+      "Bash(node:*)",
+      "Bash(npx tsc:*)",
+      "Bash(ffmpeg -y -i \"E:/Code V2/griscreen/public/grinscreen/grinscreen-logo.png\" -vf \"scale=32:32\" \"E:/Code V2/griscreen/src/app/favicon.ico\")",
+      "Bash(ffmpeg -y -i \"E:/Code V2/griscreen/public/grinscreen/logo.png\" -vf \"scale=32:32\" \"E:/Code V2/griscreen/src/app/favicon.ico\")"
     ]
   }
 }

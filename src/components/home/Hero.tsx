@@ -58,7 +58,9 @@ export function Hero() {
         {heroReels.map((reel, i) => (
           <video
             key={reel.id}
-            ref={(el) => { videoRefs.current[i] = el; }}
+            ref={(el) => {
+              videoRefs.current[i] = el;
+            }}
             src={reel.src}
             poster={reel.poster}
             muted
@@ -68,12 +70,7 @@ export function Hero() {
             aria-hidden="true"
             className="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000"
             style={{
-              opacity:
-                i === activeIndex
-                  ? 0.45
-                  : i === fadingIndex
-                  ? 0
-                  : 0,
+              opacity: i === activeIndex ? 0.45 : i === fadingIndex ? 0 : 0,
               zIndex: i === activeIndex ? 1 : i === fadingIndex ? 0 : -1,
             }}
           />
@@ -85,25 +82,26 @@ export function Hero() {
       {/* Glow */}
       <div
         className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full blur-[120px] opacity-20 pointer-events-none z-10"
-        style={{ background: "radial-gradient(circle, #16C138 0%, transparent 70%)" }}
+        style={{
+          background: "radial-gradient(circle, #16C138 0%, transparent 70%)",
+        }}
       />
 
       {/* Content */}
       <div className="relative z-20 max-w-7xl mx-auto px-6 pt-32 pb-24">
         <div className="max-w-3xl">
           <p className="font-mono text-brand-bright text-xs uppercase tracking-widest mb-6">
-            360° Digital Marketing Agency
+            You Know The Work, Not The Name
           </p>
           <h1
             className="font-display font-bold text-fg leading-[1.05] mb-6"
             style={{ fontSize: "clamp(2.8rem, 7vw, 6rem)" }}
           >
-            Reels that rack up{" "}
-            <span className="text-brand-bright">millions</span>{" "}
-            of views.
+            Built to <span className="text-brand-bright">Influence</span>{" "}
           </h1>
           <p className="text-fg-muted text-lg md:text-xl leading-relaxed max-w-xl mb-10">
-            From viral short-form video to full-service brand management — we build digital presences that demand attention.
+            From scroll-stopping reels to full brand management, everything a
+            brand needs to be noticed.
           </p>
           <div className="flex flex-wrap gap-4">
             <Link
@@ -131,7 +129,8 @@ export function Hero() {
               onClick={() => setActiveIndex(i)}
               className="w-1.5 h-1.5 rounded-full transition-all duration-300"
               style={{
-                background: i === activeIndex ? "#16C138" : "rgba(255,255,255,0.3)",
+                background:
+                  i === activeIndex ? "#16C138" : "rgba(255,255,255,0.3)",
                 width: i === activeIndex ? "1.5rem" : "0.375rem",
               }}
               aria-label={`Show reel ${i + 1}`}
@@ -142,7 +141,9 @@ export function Hero() {
 
       {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 opacity-50">
-        <span className="font-mono text-xs text-fg-muted uppercase tracking-widest">Scroll</span>
+        <span className="font-mono text-xs text-fg-muted uppercase tracking-widest">
+          Scroll
+        </span>
         <div className="w-px h-8 bg-gradient-to-b from-brand-bright to-transparent" />
       </div>
     </section>

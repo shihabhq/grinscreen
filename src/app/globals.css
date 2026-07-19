@@ -71,3 +71,12 @@
     animation: none !important;
   }
 }
+
+/* Hide scrollbar visually but keep scroll functionality */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}

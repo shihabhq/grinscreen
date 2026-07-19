@@ -4,7 +4,7 @@ import { useRef, useEffect, useState, useCallback } from "react";
 import { useReducedMotion } from "motion/react";
 import { clsx } from "clsx";
 
-// No concurrent cap — all visible reels autoplay
+// No concurrent cap  all visible reels autoplay
 
 interface LazyVideoProps {
   src: string;
@@ -15,7 +15,13 @@ interface LazyVideoProps {
   title?: string;
 }
 
-export function LazyVideo({ src, poster, className, priority = false, title }: LazyVideoProps) {
+export function LazyVideo({
+  src,
+  poster,
+  className,
+  priority = false,
+  title,
+}: LazyVideoProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   // shouldPlay tracks IntersectionObserver intent so the ref callback can fire it
@@ -24,14 +30,17 @@ export function LazyVideo({ src, poster, className, priority = false, title }: L
   const [playing, setPlaying] = useState(false);
   const prefersReduced = useReducedMotion();
 
-  const tryPlay = useCallback(async (video: HTMLVideoElement) => {
-    if (prefersReduced) return;
-    try {
-      await video.play();
-    } catch {
-      // Autoplay blocked — poster stays visible
-    }
-  }, [prefersReduced]);
+  const tryPlay = useCallback(
+    async (video: HTMLVideoElement) => {
+      if (prefersReduced) return;
+      try {
+        await video.play();
+      } catch {
+        // Autoplay blocked  poster stays visible
+      }
+    },
+    [prefersReduced],
+  );
 
   const doPause = useCallback(() => {
     const video = videoRef.current;
@@ -42,12 +51,16 @@ export function LazyVideo({ src, poster, className, priority = false, title }: L
 
   // Ref callback: fires when video element mounts/unmounts.
   // If shouldPlay is set (observer already fired), attempt play immediately.
-  const setVideoRef = useCallback((node: HTMLVideoElement | null) => {
-    (videoRef as React.MutableRefObject<HTMLVideoElement | null>).current = node;
-    if (node && shouldPlayRef.current) {
-      tryPlay(node);
-    }
-  }, [tryPlay]);
+  const setVideoRef = useCallback(
+    (node: HTMLVideoElement | null) => {
+      (videoRef as React.MutableRefObject<HTMLVideoElement | null>).current =
+        node;
+      if (node && shouldPlayRef.current) {
+        tryPlay(node);
+      }
+    },
+    [tryPlay],
+  );
 
   useEffect(() => {
     const container = containerRef.current;
@@ -69,7 +82,7 @@ export function LazyVideo({ src, poster, className, priority = false, title }: L
           }
         });
       },
-      { threshold: 0.25 }
+      { threshold: 0.25 },
     );
 
     observer.observe(container);
@@ -81,10 +94,17 @@ export function LazyVideo({ src, poster, className, priority = false, title }: L
     return (
       <div
         ref={containerRef}
-        className={clsx("relative overflow-hidden aspect-[9/16] bg-surface", className)}
+        className={clsx(
+          "relative overflow-hidden aspect-[9/16] bg-surface",
+          className,
+        )}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={poster} alt={title ?? "Video poster"} className="w-full h-full object-cover" />
+        <img
+          src={poster}
+          alt={title ?? "Video poster"}
+          className="w-full h-full object-cover"
+        />
         <div className="absolute inset-0 flex items-center justify-center">
           <span className="w-14 h-14 rounded-full bg-bg/70 backdrop-blur-sm flex items-center justify-center text-fg text-xl">
             ▶
@@ -97,7 +117,10 @@ export function LazyVideo({ src, poster, className, priority = false, title }: L
   return (
     <div
       ref={containerRef}
-      className={clsx("relative overflow-hidden aspect-[9/16] bg-surface", className)}
+      className={clsx(
+        "relative overflow-hidden aspect-[9/16] bg-surface",
+        className,
+      )}
     >
       {/* Poster shown until video is playing */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -106,7 +129,7 @@ export function LazyVideo({ src, poster, className, priority = false, title }: L
         alt={title ?? ""}
         className={clsx(
           "absolute inset-0 w-full h-full object-cover transition-opacity duration-500",
-          playing ? "opacity-0 pointer-events-none" : "opacity-100"
+          playing ? "opacity-0 pointer-events-none" : "opacity-100",
         )}
         aria-hidden={playing}
       />
