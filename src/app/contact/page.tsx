@@ -4,7 +4,8 @@ import { site } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Get in touch with Grinscreen Digital — call, WhatsApp, or email us.",
+  description:
+    "Get in touch with Grinscreen Digital  call, WhatsApp, or email us.",
 };
 
 const phone = "01886189297";
@@ -17,7 +18,16 @@ const contactMethods = [
     value: email,
     href: `mailto:${email}`,
     icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
         <rect x="2" y="4" width="20" height="16" rx="2" />
         <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
       </svg>
@@ -29,7 +39,16 @@ const contactMethods = [
     value: phoneDisplay,
     href: `tel:+880${phone}`,
     icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
         <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.61 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.18 6.18l.95-.95a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
       </svg>
     ),
@@ -73,17 +92,22 @@ export default function ContactPage() {
       <section className="py-20 px-6 max-w-5xl mx-auto">
         {/* Header */}
         <Reveal>
-          <p className="font-mono text-brand-bright text-xs uppercase tracking-widest mb-4">Get in Touch</p>
+          <p className="font-mono text-brand-bright text-xs uppercase tracking-widest mb-4">
+            Get in Touch
+          </p>
           <h1
             className="font-display font-bold text-fg mb-6"
             style={{ fontSize: "clamp(2.5rem, 5vw, 4.5rem)" }}
           >
-            Let&apos;s build<br />
-            something<br />
+            Let&apos;s build
+            <br />
+            something
+            <br />
             <span className="text-brand-bright">remarkable.</span>
           </h1>
           <p className="text-fg-muted text-lg leading-relaxed mb-16 max-w-lg">
-            Reach out via email, phone, or WhatsApp — we&apos;re quick to respond and ready to help your brand grow.
+            Reach out via email, phone, or WhatsApp we&apos;re quick to respond
+            and ready to help your brand grow.
           </p>
         </Reveal>
 
@@ -101,14 +125,22 @@ export default function ContactPage() {
                   {method.icon}
                 </span>
                 <div>
-                  <p className="font-mono text-xs text-fg-muted uppercase tracking-widest mb-1">{method.label}</p>
+                  <p className="font-mono text-xs text-fg-muted uppercase tracking-widest mb-1">
+                    {method.label}
+                  </p>
                   <p className="font-display font-semibold text-fg text-lg group-hover:text-brand-bright transition-colors duration-200">
                     {method.value}
                   </p>
-                  <p className="text-fg-muted text-sm mt-1">{method.description}</p>
+                  <p className="text-fg-muted text-sm mt-1">
+                    {method.description}
+                  </p>
                 </div>
                 <span className="text-fg-muted group-hover:text-brand-bright transition-colors duration-200 text-sm font-medium">
-                  {method.label === "Email" ? "Send email →" : method.label === "Call" ? "Call now →" : "Open WhatsApp →"}
+                  {method.label === "Email"
+                    ? "Send email →"
+                    : method.label === "Call"
+                      ? "Call now →"
+                      : "Open WhatsApp →"}
                 </span>
               </a>
             </Reveal>
@@ -120,7 +152,9 @@ export default function ContactPage() {
 
         {/* Social links */}
         <Reveal>
-          <p className="font-mono text-brand-bright text-xs uppercase tracking-widest mb-8">Follow Us</p>
+          <p className="font-mono text-brand-bright text-xs uppercase tracking-widest mb-8">
+            Follow Us
+          </p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {socialLinks.map((social, i) => (
               <Reveal key={social.label} delay={i * 0.06}>
@@ -134,9 +168,13 @@ export default function ContactPage() {
                     <p className="font-display font-semibold text-fg text-base group-hover:text-brand-bright transition-colors duration-200">
                       {social.label}
                     </p>
-                    <p className="text-fg-muted text-sm mt-0.5">{social.handle}</p>
+                    <p className="text-fg-muted text-sm mt-0.5">
+                      {social.handle}
+                    </p>
                   </div>
-                  <span className="text-fg-muted group-hover:text-brand-bright transition-colors duration-200 text-xl">↗</span>
+                  <span className="text-fg-muted group-hover:text-brand-bright transition-colors duration-200 text-xl">
+                    ↗
+                  </span>
                 </a>
               </Reveal>
             ))}

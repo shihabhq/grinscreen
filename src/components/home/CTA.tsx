@@ -6,20 +6,27 @@ export function CTA() {
     <section className="py-32 px-6 relative overflow-hidden">
       <div
         className="absolute inset-0 opacity-5 pointer-events-none"
-        style={{ background: "radial-gradient(ellipse at bottom, #16C138 0%, transparent 60%)" }}
+        style={{
+          background:
+            "radial-gradient(ellipse at bottom, #16C138 0%, transparent 60%)",
+        }}
       />
       <div className="max-w-4xl mx-auto text-center relative z-10">
         <Reveal>
-          <p className="font-mono text-brand-bright text-xs uppercase tracking-widest mb-6">Ready?</p>
+          <p className="font-mono text-brand-bright text-xs uppercase tracking-widest mb-6">
+            Ready?
+          </p>
           <h2
             className="font-display font-bold text-fg mb-6"
             style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)" }}
           >
-            Let&apos;s make something<br />
+            Let&apos;s make something
+            <br />
             <span className="text-brand-bright">people can&apos;t ignore.</span>
           </h2>
           <p className="text-fg-muted text-lg mb-10 max-w-xl mx-auto">
-            Tell us about your brand. We&apos;ll handle the rest — strategy, content, distribution, and results.
+            Tell us about your brand. We&apos;ll handle the rest strategy,
+            content, distribution, and results.
           </p>
           <Link
             href="/contact"

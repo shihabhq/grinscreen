@@ -12,7 +12,11 @@ interface CarouselProps {
   aspectRatio?: string;
 }
 
-export function Carousel({ images, title, aspectRatio = "1/1" }: CarouselProps) {
+export function Carousel({
+  images,
+  title,
+  aspectRatio = "1/1",
+}: CarouselProps) {
   const prefersReduced = useReducedMotion();
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: images.length > 1,
@@ -28,12 +32,17 @@ export function Carousel({ images, title, aspectRatio = "1/1" }: CarouselProps) 
   useEffect(() => {
     if (!emblaApi) return;
     emblaApi.on("select", onSelect);
-    return () => { emblaApi.off("select", onSelect); };
+    return () => {
+      emblaApi.off("select", onSelect);
+    };
   }, [emblaApi, onSelect]);
 
   if (images.length === 1) {
     return (
-      <div className="relative overflow-hidden rounded-lg" style={{ aspectRatio }}>
+      <div
+        className="relative overflow-hidden rounded-lg"
+        style={{ aspectRatio }}
+      >
         <Image
           src={images[0]}
           alt={title}
@@ -46,7 +55,12 @@ export function Carousel({ images, title, aspectRatio = "1/1" }: CarouselProps) 
   }
 
   return (
-    <div className="relative group" role="group" aria-roledescription="carousel" aria-label={title}>
+    <div
+      className="relative group"
+      role="group"
+      aria-roledescription="carousel"
+      aria-label={title}
+    >
       <div className="overflow-hidden rounded-lg" ref={emblaRef}>
         <div className="flex">
           {images.map((src, i) => (
@@ -61,7 +75,7 @@ export function Carousel({ images, title, aspectRatio = "1/1" }: CarouselProps) 
               <div className="relative w-full h-full">
                 <Image
                   src={src}
-                  alt={`${title} — image ${i + 1}`}
+                  alt={`${title}  image ${i + 1}`}
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -101,7 +115,9 @@ export function Carousel({ images, title, aspectRatio = "1/1" }: CarouselProps) 
             onClick={() => emblaApi?.scrollTo(i)}
             className={clsx(
               "h-1.5 rounded-full transition-all duration-300",
-              i === selectedIndex ? "bg-brand-bright w-4" : "bg-border hover:bg-fg-muted w-1.5"
+              i === selectedIndex
+                ? "bg-brand-bright w-4"
+                : "bg-border hover:bg-fg-muted w-1.5",
             )}
             aria-label={`Go to image ${i + 1}`}
             aria-current={i === selectedIndex ? "true" : undefined}
