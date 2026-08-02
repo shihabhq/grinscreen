@@ -93,13 +93,13 @@ export default function PortfolioPage() {
           <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-6">
             {clients.map((client, i) => (
               <Reveal key={client.id} delay={Math.min(i * 0.03, 0.4)}>
-                <div className="flex items-center justify-center p-3 rounded-xl bg-white/90 hover:bg-white transition-colors duration-200 group">
+                <div className="flex items-center justify-center p-3 rounded-xl">
                   <Image
                     src={client.logo}
                     alt={client.name}
                     width={120}
                     height={72}
-                    className="max-h-14 w-auto object-contain opacity-70 group-hover:opacity-100 transition-all duration-300"
+                    className="max-h-14 w-auto object-contain gs-logo"
                     unoptimized
                   />
                 </div>

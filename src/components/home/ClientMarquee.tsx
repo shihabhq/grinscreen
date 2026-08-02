@@ -58,15 +58,13 @@ export function ClientMarquee() {
               <div
                 key={`r1-${client.id}-${i}`}
                 style={{
-                  width: "7rem",
+                  width: "8rem",
                   flexShrink: 0,
-                  marginRight: "1.5rem",
-                  height: "3.5rem",
+                  marginRight: "1rem",
+                  height: "4rem",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  background: "#ffffff",
-                  borderRadius: "8px",
                   padding: "6px",
                 }}
               >
@@ -75,7 +73,7 @@ export function ClientMarquee() {
                   alt={client.name}
                   width={112}
                   height={56}
-                  className="max-h-12 w-auto object-contain"
+                  className="max-h-14 w-auto object-contain gs-logo"
                   unoptimized
                 />
               </div>
@@ -99,15 +97,13 @@ export function ClientMarquee() {
               <div
                 key={`r2-${client.id}-${i}`}
                 style={{
-                  width: "7rem",
+                  width: "8rem",
                   flexShrink: 0,
-                  marginRight: "1.5rem",
-                  height: "3.5rem",
+                  marginRight: "1rem",
+                  height: "4rem",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  background: "#ffffff",
-                  borderRadius: "8px",
                   padding: "6px",
                 }}
               >
@@ -116,7 +112,7 @@ export function ClientMarquee() {
                   alt={client.name}
                   width={112}
                   height={56}
-                  className="max-h-12 w-auto object-contain"
+                  className="max-h-14 w-auto object-contain gs-logo"
                   unoptimized
                 />
               </div>

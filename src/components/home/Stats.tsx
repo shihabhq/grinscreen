@@ -1,9 +1,10 @@
 import { Reveal } from "@/components/ui/Reveal";
+import { CountUp } from "@/components/ui/CountUp";
 
 const stats = [
-  { value: "15+", label: "Reel productions" },
-  { value: "29+", label: "Brand clients" },
-  { value: "Millions", label: "Of views delivered" },
+  { value: "54m+", label: "Reel Views" },
+  { value: "9.4m+", label: "Reach" },
+  { value: "25+", label: "Clients Served" },
   { value: "360°", label: "Marketing coverage" },
 ];
 
@@ -23,7 +24,7 @@ export function Stats() {
                   className="font-display font-bold text-brand-bright mb-2"
                   style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)" }}
                 >
-                  {stat.value}
+                  <CountUp value={stat.value} />
                 </p>
                 <p className="font-mono text-fg-muted text-xs uppercase tracking-widest">{stat.label}</p>
               </div>
