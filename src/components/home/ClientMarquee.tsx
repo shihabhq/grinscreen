@@ -22,16 +22,32 @@ export function ClientMarquee() {
         }
         .gs-track { display: flex; align-items: center; width: max-content; }
         .gs-track:hover { animation-play-state: paused !important; }
+        .gs-logo-wrap {
+          position: relative;
+          width: 160px;
+          height: 80px;
+          cursor: pointer;
+        }
         .gs-logo-img {
           width: 160px;
           height: 80px;
           object-fit: contain;
-          filter: drop-shadow(0 0 6px rgba(255,255,255,0.08));
-          transition: filter 0.3s ease, opacity 0.3s ease;
+          transition: opacity 0.35s ease;
+        }
+        .gs-logo-white {
           opacity: 1;
         }
-        .gs-logo-img:hover {
-          filter: drop-shadow(0 0 12px rgba(22, 193, 56, 0.35));
+        .gs-logo-colored {
+          position: absolute;
+          inset: 0;
+          opacity: 0;
+          filter: drop-shadow(0 0 10px rgba(22, 193, 56, 0.3));
+        }
+        .gs-logo-wrap:hover .gs-logo-white {
+          opacity: 0;
+        }
+        .gs-logo-wrap:hover .gs-logo-colored {
+          opacity: 1;
         }
       `}</style>
 
@@ -75,14 +91,27 @@ export function ClientMarquee() {
                   justifyContent: "center",
                 }}
               >
-                <Image
-                  src={client.logo}
-                  alt={client.name}
-                  width={160}
-                  height={80}
-                  className="gs-logo-img"
-                  unoptimized
-                />
+                <div className="gs-logo-wrap">
+                  <Image
+                    src={client.logo}
+                    alt={client.name}
+                    width={160}
+                    height={80}
+                    className="gs-logo-img gs-logo-white"
+                    unoptimized
+                  />
+                  {client.logoColored && (
+                    <Image
+                      src={client.logoColored}
+                      alt=""
+                      aria-hidden="true"
+                      width={160}
+                      height={80}
+                      className="gs-logo-img gs-logo-colored"
+                      unoptimized
+                    />
+                  )}
+                </div>
               </div>
             ))}
           </div>
@@ -111,14 +140,27 @@ export function ClientMarquee() {
                   justifyContent: "center",
                 }}
               >
-                <Image
-                  src={client.logo}
-                  alt={client.name}
-                  width={160}
-                  height={80}
-                  className="gs-logo-img"
-                  unoptimized
-                />
+                <div className="gs-logo-wrap">
+                  <Image
+                    src={client.logo}
+                    alt={client.name}
+                    width={160}
+                    height={80}
+                    className="gs-logo-img gs-logo-white"
+                    unoptimized
+                  />
+                  {client.logoColored && (
+                    <Image
+                      src={client.logoColored}
+                      alt=""
+                      aria-hidden="true"
+                      width={160}
+                      height={80}
+                      className="gs-logo-img gs-logo-colored"
+                      unoptimized
+                    />
+                  )}
+                </div>
               </div>
             ))}
           </div>

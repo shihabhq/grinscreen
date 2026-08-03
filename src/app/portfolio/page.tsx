@@ -93,15 +93,27 @@ export default function PortfolioPage() {
           <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-6">
             {clients.map((client, i) => (
               <Reveal key={client.id} delay={Math.min(i * 0.03, 0.4)}>
-                <div className="flex items-center justify-center p-3 rounded-xl">
-                  <Image
-                    src={client.logo}
-                    alt={client.name}
-                    width={180}
-                    height={108}
-                    className="max-h-24 w-auto object-contain"
-                    unoptimized
-                  />
+                <div className="group flex items-center justify-center p-3 rounded-xl cursor-pointer">
+                  <div className="relative w-full" style={{ aspectRatio: "5/3" }}>
+                    <Image
+                      src={client.logo}
+                      alt={client.name}
+                      fill
+                      className="object-contain transition-opacity duration-300 group-hover:opacity-0"
+                      unoptimized
+                    />
+                    {client.logoColored && (
+                      <Image
+                        src={client.logoColored}
+                        alt=""
+                        aria-hidden="true"
+                        fill
+                        className="object-contain transition-opacity duration-300 opacity-0 group-hover:opacity-100"
+                        style={{ filter: "drop-shadow(0 0 8px rgba(22,193,56,0.25))" }}
+                        unoptimized
+                      />
+                    )}
+                  </div>
                 </div>
               </Reveal>
             ))}
