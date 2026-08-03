@@ -92,10 +92,10 @@ export default function AboutPage() {
           </Reveal>
           <div className="grid grid-cols-2 gap-4">
             {[
-              { value: "29+", label: "Client brands" },
-              { value: "15+", label: "Video productions" },
-              { value: "Millions", label: "Views delivered" },
-              { value: "360°", label: "Service coverage" },
+              { value: "54m+", label: "Reel Views" },
+              { value: "9.4m+", label: "React" },
+              { value: "25+", label: "Clients Served" },
+              { value: "360°", label: "Marketing coverage" },
             ].map((stat, i) => (
               <Reveal key={stat.label} delay={i * 0.08}>
                 <div className="bg-surface border border-border rounded-xl p-6">
