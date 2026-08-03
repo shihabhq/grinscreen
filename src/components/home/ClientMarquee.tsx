@@ -23,8 +23,8 @@ export function ClientMarquee() {
         .gs-track { display: flex; align-items: center; width: max-content; }
         .gs-track:hover { animation-play-state: paused !important; }
         .gs-logo-img {
-          width: 140px;
-          height: 70px;
+          width: 160px;
+          height: 80px;
           object-fit: contain;
           filter: drop-shadow(0 0 6px rgba(255,255,255,0.08));
           transition: filter 0.3s ease, opacity 0.3s ease;
@@ -78,8 +78,8 @@ export function ClientMarquee() {
                 <Image
                   src={client.logo}
                   alt={client.name}
-                  width={140}
-                  height={70}
+                  width={160}
+                  height={80}
                   className="gs-logo-img"
                   unoptimized
                 />
@@ -114,8 +114,8 @@ export function ClientMarquee() {
                 <Image
                   src={client.logo}
                   alt={client.name}
-                  width={140}
-                  height={70}
+                  width={160}
+                  height={80}
                   className="gs-logo-img"
                   unoptimized
                 />
