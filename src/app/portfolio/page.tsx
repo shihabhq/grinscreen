@@ -97,9 +97,9 @@ export default function PortfolioPage() {
                   <Image
                     src={client.logo}
                     alt={client.name}
-                    width={120}
-                    height={72}
-                    className="max-h-14 w-auto object-contain"
+                    width={180}
+                    height={108}
+                    className="max-h-24 w-auto object-contain"
                     unoptimized
                   />
                 </div>
