@@ -5,7 +5,6 @@ import { clients } from "@/data/clients";
 import { Reveal } from "@/components/ui/Reveal";
 
 const half = Math.ceil(clients.length / 2);
-// Double each half  animation moves exactly -50% (one full copy) then resets invisibly
 const row1 = [...clients.slice(0, half), ...clients.slice(0, half)];
 const row2 = [...clients.slice(half), ...clients.slice(half)];
 
@@ -23,6 +22,17 @@ export function ClientMarquee() {
         }
         .gs-track { display: flex; align-items: center; width: max-content; }
         .gs-track:hover { animation-play-state: paused !important; }
+        .gs-logo-img {
+          width: 140px;
+          height: 70px;
+          object-fit: contain;
+          filter: drop-shadow(0 0 6px rgba(255,255,255,0.08));
+          transition: filter 0.3s ease, opacity 0.3s ease;
+          opacity: 1;
+        }
+        .gs-logo-img:hover {
+          filter: drop-shadow(0 0 12px rgba(22, 193, 56, 0.35));
+        }
       `}</style>
 
       <div className="max-w-7xl mx-auto px-6 mb-12">
@@ -41,39 +51,36 @@ export function ClientMarquee() {
         </Reveal>
       </div>
 
-      <div className="flex flex-col gap-6">
-        {/* Row 1  left */}
+      <div className="flex flex-col gap-8">
+        {/* Row 1 — left */}
         <div
           className="relative overflow-hidden"
           style={{
             maskImage:
-              "linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)",
+              "linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%)",
           }}
         >
           <div
             className="gs-track"
-            style={{ animation: "gs-scroll-left 18s linear infinite" }}
+            style={{ animation: "gs-scroll-left 22s linear infinite" }}
           >
             {row1.map((client, i) => (
               <div
                 key={`r1-${client.id}-${i}`}
                 style={{
-                  width: "8rem",
                   flexShrink: 0,
-                  marginRight: "1rem",
-                  height: "4rem",
+                  marginRight: "2.5rem",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  padding: "6px",
                 }}
               >
                 <Image
                   src={client.logo}
                   alt={client.name}
-                  width={112}
-                  height={56}
-                  className="max-h-14 w-auto object-contain gs-logo"
+                  width={140}
+                  height={70}
+                  className="gs-logo-img"
                   unoptimized
                 />
               </div>
@@ -81,38 +88,35 @@ export function ClientMarquee() {
           </div>
         </div>
 
-        {/* Row 2  right */}
+        {/* Row 2 — right */}
         <div
           className="relative overflow-hidden"
           style={{
             maskImage:
-              "linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)",
+              "linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%)",
           }}
         >
           <div
             className="gs-track"
-            style={{ animation: "gs-scroll-right 22s linear infinite" }}
+            style={{ animation: "gs-scroll-right 26s linear infinite" }}
           >
             {row2.map((client, i) => (
               <div
                 key={`r2-${client.id}-${i}`}
                 style={{
-                  width: "8rem",
                   flexShrink: 0,
-                  marginRight: "1rem",
-                  height: "4rem",
+                  marginRight: "2.5rem",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  padding: "6px",
                 }}
               >
                 <Image
                   src={client.logo}
                   alt={client.name}
-                  width={112}
-                  height={56}
-                  className="max-h-14 w-auto object-contain gs-logo"
+                  width={140}
+                  height={70}
+                  className="gs-logo-img"
                   unoptimized
                 />
               </div>

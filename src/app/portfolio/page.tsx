@@ -99,7 +99,7 @@ export default function PortfolioPage() {
                     alt={client.name}
                     width={120}
                     height={72}
-                    className="max-h-14 w-auto object-contain gs-logo"
+                    className="max-h-14 w-auto object-contain"
                     unoptimized
                   />
                 </div>
