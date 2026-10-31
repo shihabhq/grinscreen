@@ -4,6 +4,7 @@ import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { SmoothScroll } from "@/components/layout/SmoothScroll";
+import { MetaPixel } from "@/components/layout/MetaPixel";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -57,6 +58,7 @@ export default function RootLayout({
       className={`${inter.variable} ${spaceGrotesk.variable} ${geistMono.variable}`}
     >
       <body className="bg-bg text-fg font-sans min-h-dvh flex flex-col antialiased">
+        <MetaPixel />
         <SmoothScroll>
           <Navbar />
           <main className="flex-1">{children}</main>
