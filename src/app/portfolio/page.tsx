@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { statics } from "@/data/statics";
 import { clients } from "@/data/clients";
 import { reels } from "@/data/reels";
@@ -8,11 +9,12 @@ import { CaseStudies } from "@/components/portfolio/CaseStudies";
 import { Reveal } from "@/components/ui/Reveal";
 import Image from "next/image";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Portfolio",
   description:
-    "Reels, static designs, and clients  Grinscreen Digital's full portfolio of digital marketing work.",
-};
+    "Viral reels, scroll-stopping static designs, case studies and the brands that trust Grinscreen Digital, a digital marketing agency in Bangladesh.",
+  path: "/portfolio",
+});
 
 export default function PortfolioPage() {
   return (

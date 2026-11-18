@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { Reveal } from "@/components/ui/Reveal";
 import { services } from "@/data/services";
 
-export const metadata: Metadata = {
-  title: "About",
+export const metadata: Metadata = pageMetadata({
+  title: "About Us",
   description:
-    "Grinscreen Digital  360° digital marketing agency based in Bangladesh. Learn about who we are and what we do.",
-};
+    "Grinscreen Digital is a 360° digital marketing agency in Bangladesh, known for reels that reach millions. See what we do and how we work: brief, create, publish, grow.",
+  path: "/about",
+});
 
 const process = [
   {
