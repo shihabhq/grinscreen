@@ -4,7 +4,7 @@ import { site } from "@/data/site";
 export default function manifest(): MetadataRoute.Manifest {
   return {
     name: site.name,
-    short_name: "Grinscreen",
+    short_name: "GrinScreen",
     description: site.description,
     start_url: "/",
     display: "standalone",

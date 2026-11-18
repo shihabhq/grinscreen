@@ -7,7 +7,7 @@ import { site } from "@/data/site";
 export const metadata: Metadata = pageMetadata({
   title: "Book a Call",
   description:
-    "Book a free 30-minute call with Grinscreen Digital. Pick a time that suits you and talk reels, campaigns, ads and brand growth with our Bangladesh team.",
+    "Book a free 30-minute call with GrinScreen. Pick a time that suits you and talk reels, campaigns, ads and brand growth with our Bangladesh team.",
   path: "/book",
 });
 

@@ -7,7 +7,7 @@ import { site } from "@/data/site";
 export const metadata: Metadata = pageMetadata({
   title: "Contact",
   description:
-    "Start a project with Grinscreen Digital. Email, call or WhatsApp our Bangladesh digital marketing team for reels, campaigns, ads and brand management.",
+    "Start a project with GrinScreen. Email, call or WhatsApp our Bangladesh digital marketing team for reels, campaigns, ads and brand management.",
   path: "/contact",
 });
 
@@ -209,7 +209,7 @@ export default function ContactPage() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label={`Grinscreen Digital on ${social.label}`}
+                  aria-label={`GrinScreen on ${social.label}`}
                   title={social.label}
                   className="flex h-16 w-16 items-center justify-center rounded-xl border border-border bg-surface-2 text-fg transition-all duration-300 hover:-translate-y-1 hover:border-brand-bright hover:bg-brand hover:text-white hover:shadow-[0_0_24px_-4px_var(--color-brand-glow)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-glow"
                 >

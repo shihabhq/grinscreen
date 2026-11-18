@@ -20,12 +20,12 @@ export function Footer() {
             <Link href="/" className="flex items-center gap-3 mb-4">
               <Image
                 src="/grinscreen/logo.png"
-                alt="Grinscreen Digital"
+                alt="GrinScreen"
                 width={40}
                 height={40}
                 className="w-10 h-10 object-contain"
               />
-              <span className="font-display font-bold text-fg text-lg">Grinscreen Digital</span>
+              <span className="font-display font-bold text-fg text-lg">GrinScreen</span>
             </Link>
             <p className="text-fg-muted text-sm leading-relaxed max-w-xs">
               360° digital marketing agency. Reels that rack up millions of views.
@@ -82,7 +82,7 @@ export function Footer() {
 
         <div className="mt-12 pt-6 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-fg-muted text-xs">
-            © {new Date().getFullYear()} Grinscreen Digital. All rights reserved.
+            © {new Date().getFullYear()} GrinScreen. All rights reserved.
           </p>
           <p className="text-fg-muted text-xs">Bangladesh</p>
         </div>

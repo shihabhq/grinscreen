@@ -33,7 +33,7 @@ export function ContactForm() {
           email: data.get("email"),
           company: data.get("company"),
           message: data.get("message"),
-          from_name: "Grinscreen Digital Website",
+          from_name: "GrinScreen Website",
         }),
       });
 

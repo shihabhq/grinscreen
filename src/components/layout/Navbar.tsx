@@ -52,7 +52,7 @@ export function Navbar() {
           <Link href="/" className="flex items-center shrink-0" onClick={closeDrawer}>
             <Image
               src="/grinscreen/grinscreen-logo.png"
-              alt="Grinscreen Digital"
+              alt="GrinScreen"
               width={180}
               height={48}
               className="h-10 w-auto object-contain"
