@@ -9,7 +9,7 @@ import { reels } from "@/data/reels";
 const heroReels = [
   reels.find((r) => r.id === "outlet-opening")!,
   reels.find((r) => r.id === "food")!,
-  reels.find((r) => r.id === "zuhrah")!,
+  reels.find((r) => r.id === "zuhra")!,
   reels.find((r) => r.id === "ambience")!,
   reels.find((r) => r.id === "aug-reel")!,
 ].filter(Boolean);
@@ -98,6 +98,7 @@ export function Hero() {
             style={{ fontSize: "clamp(2.8rem, 7vw, 6rem)" }}
           >
             Built to <span className="text-brand-bright">Influence</span>{" "}
+            <span className="sr-only">&mdash; digital marketing agency in Bangladesh</span>
           </h1>
           <p className="text-fg-muted text-lg md:text-xl leading-relaxed max-w-xl mb-10">
             From scroll-stopping reels to full brand management, everything a
@@ -105,16 +106,22 @@ export function Hero() {
           </p>
           <div className="flex flex-wrap gap-4">
             <Link
-              href="/contact"
+              href="/book"
               className="px-7 py-3.5 rounded-full bg-brand-bright text-white font-semibold text-base hover:bg-brand-glow transition-colors duration-200"
             >
-              Start a Project
+              Book a Free Call
             </Link>
             <Link
               href="/portfolio"
-              className="px-7 py-3.5 rounded-full border border-border text-fg text-base font-medium hover:border-brand-bright/50 hover:text-brand-bright transition-colors duration-200"
+              className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-full border-2 border-brand-bright bg-bg/50 backdrop-blur-md text-fg text-base font-semibold shadow-[0_0_28px_-6px_var(--color-brand-glow)] hover:bg-brand-bright hover:text-bg hover:shadow-[0_0_36px_-2px_var(--color-brand-glow)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-glow transition-all duration-300"
             >
               See Our Work
+              <span
+                aria-hidden="true"
+                className="transition-transform duration-300 group-hover:translate-x-1"
+              >
+                →
+              </span>
             </Link>
           </div>
         </div>
