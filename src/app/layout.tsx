@@ -26,16 +26,16 @@ const geistMono = Geist_Mono({
   display: "swap",
 });
 
-const title = "Grinscreen Digital | Digital Marketing Agency in Bangladesh";
+const title = "GrinScreen | Digital Marketing Agency in Bangladesh";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
     default: title,
-    template: "%s | Grinscreen Digital",
+    template: "%s | GrinScreen",
   },
   description:
-    "Grinscreen Digital is a 360° digital marketing agency in Bangladesh. Viral short-form reels, social media campaigns, ad services, static design, photoshoots and full brand management.",
+    "GrinScreen is a 360° digital marketing agency in Bangladesh. Viral short-form reels, social media campaigns, ad services, static design, photoshoots and full brand management.",
   applicationName: site.name,
   keywords: [
     "digital marketing agency Bangladesh",
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     "ad services Bangladesh",
     "food photography Dhaka",
     "brand management agency",
-    "Grinscreen Digital",
+    "GrinScreen",
   ],
   authors: [{ name: site.name, url: site.url }],
   creator: site.name,

@@ -6,7 +6,7 @@ import { services } from "@/data/services";
 export const metadata: Metadata = pageMetadata({
   title: "About Us",
   description:
-    "Grinscreen Digital is a 360° digital marketing agency in Bangladesh, known for reels that reach millions. See what we do and how we work: brief, create, publish, grow.",
+    "GrinScreen is a 360° digital marketing agency in Bangladesh, known for reels that reach millions. See what we do and how we work: brief, create, publish, grow.",
   path: "/about",
 });
 
@@ -55,7 +55,7 @@ export default function AboutPage() {
             <span className="text-fg-muted">Built for the feed.</span>
           </h1>
           <p className="text-fg-muted text-xl leading-relaxed max-w-2xl">
-            Grinscreen Digital is a full-service digital marketing agency based
+            GrinScreen is a full-service digital marketing agency based
             in Bangladesh. We specialise in short-form video that goes viral,
             backed by the strategy, design, and management to grow brands that
             last.

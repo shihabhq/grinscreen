@@ -4,7 +4,7 @@ import { site } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "You're Booked",
-  description: "Your call with Grinscreen Digital is confirmed.",
+  description: "Your call with GrinScreen is confirmed.",
   robots: { index: false, follow: false },
 };
 

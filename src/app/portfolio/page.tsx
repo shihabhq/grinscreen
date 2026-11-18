@@ -12,7 +12,7 @@ import Image from "next/image";
 export const metadata: Metadata = pageMetadata({
   title: "Portfolio",
   description:
-    "Viral reels, scroll-stopping static designs, case studies and the brands that trust Grinscreen Digital, a digital marketing agency in Bangladesh.",
+    "Viral reels, scroll-stopping static designs, case studies and the brands that trust GrinScreen, a digital marketing agency in Bangladesh.",
   path: "/portfolio",
 });
 

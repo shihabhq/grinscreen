@@ -49,7 +49,7 @@ const caseStudies: CaseStudy[] = [
     tagline: "For the Campus,\nBy the Campus.",
     description:
       "Few students knew Arabika Campus existed. We gave it a face, a voice, and a student crowd. Now it's where everyone meets.",
-    campaign: "Arabika Campus x Grinscreen",
+    campaign: "Arabika Campus x GrinScreen",
     duration: "11 Months",
     problem:
       "Students didn't know Campus was there. And they thought Arabika was too expensive for them.",

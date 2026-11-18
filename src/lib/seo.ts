@@ -25,7 +25,7 @@ export const jsonLd = {
       "@type": ["Organization", "ProfessionalService"],
       "@id": `${site.url}/#organization`,
       name: site.name,
-      alternateName: ["Grinscreen", "GrinScreen Digital"],
+      alternateName: ["Grin Screen"],
       url: site.url,
       logo: `${site.url}/grinscreen/logo.png`,
       image: `${site.url}/opengraph-image.jpg`,
