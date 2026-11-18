@@ -97,12 +97,6 @@ export const clients: Client[] = [
     logoColored: "/client-transparent/munch station_no_bg.png",
   },
   {
-    id: "pan-chini",
-    name: "Pan Chini",
-    logo: "/client-whites/pan_chini.png",
-    logoColored: "/client-transparent/pan chini_no_bg.png",
-  },
-  {
     id: "pathao",
     name: "Pathao",
     logo: "/client-whites/pathao.png",
@@ -155,5 +149,29 @@ export const clients: Client[] = [
     name: "Zuhra",
     logo: "/client-whites/zuhra.png",
     logoColored: "/client-transparent/zuhra (1).png",
+  },
+  {
+    id: "bkash",
+    name: "bKash",
+    logo: "/client-whites/bkash-white-sq.png",
+    logoColored: "/client-transparent/bkash-color-sq.png",
+  },
+  {
+    id: "livon",
+    name: "Livon",
+    logo: "/client-whites/livon-white-sq.png",
+    logoColored: "/client-transparent/livon-color-sq.png",
+  },
+  {
+    id: "raze",
+    name: "Raze",
+    logo: "/client-whites/raze-white-sq.png",
+    logoColored: "/client-transparent/raze-color-sq.png",
+  },
+  {
+    id: "vim",
+    name: "Vim",
+    logo: "/client-whites/vim-white-sq.png",
+    logoColored: "/client-transparent/vim-color-sq.png",
   },
 ];
