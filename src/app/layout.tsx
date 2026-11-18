@@ -5,6 +5,8 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { SmoothScroll } from "@/components/layout/SmoothScroll";
 import { MetaPixel } from "@/components/layout/MetaPixel";
+import { site } from "@/data/site";
+import { jsonLd } from "@/lib/seo";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -24,23 +26,59 @@ const geistMono = Geist_Mono({
   display: "swap",
 });
 
+const title = "Grinscreen Digital | Digital Marketing Agency in Bangladesh";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(site.url),
   title: {
-    default: "Grinscreen Digital  Reels that go viral",
+    default: title,
     template: "%s | Grinscreen Digital",
   },
   description:
-    "360° digital marketing agency based in Bangladesh. Short-form reels that rack up millions of views, static design, campaigns, ads, and full-service brand management.",
-  metadataBase: new URL("https://grinscreen.vercel.app"),
+    "Grinscreen Digital is a 360° digital marketing agency in Bangladesh. Viral short-form reels, social media campaigns, ad services, static design, photoshoots and full brand management.",
+  applicationName: site.name,
+  keywords: [
+    "digital marketing agency Bangladesh",
+    "digital marketing agency Dhaka",
+    "reel making agency",
+    "viral reels Bangladesh",
+    "social media marketing Bangladesh",
+    "social media campaigns",
+    "ad services Bangladesh",
+    "food photography Dhaka",
+    "brand management agency",
+    "Grinscreen Digital",
+  ],
+  authors: [{ name: site.name, url: site.url }],
+  creator: site.name,
+  publisher: site.name,
+  category: "marketing",
+  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://grinscreen.vercel.app",
-    siteName: "Grinscreen Digital",
-    images: [{ url: "/grinscreen/logo.png", width: 1200, height: 630 }],
+    url: "/",
+    siteName: site.name,
+    title,
+    description:
+      "360° digital marketing agency in Bangladesh. Reels that rack up millions of views, campaigns, ads, design and full brand management.",
   },
   twitter: {
     card: "summary_large_image",
+    title,
+    description:
+      "360° digital marketing agency in Bangladesh. Reels that rack up millions of views.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
   icons: {
     apple: "/grinscreen/logo.png",
@@ -58,6 +96,12 @@ export default function RootLayout({
       className={`${inter.variable} ${spaceGrotesk.variable} ${geistMono.variable}`}
     >
       <body className="bg-bg text-fg font-sans min-h-dvh flex flex-col antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+          }}
+        />
         <MetaPixel />
         <SmoothScroll>
           <Navbar />

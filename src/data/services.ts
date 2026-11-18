@@ -3,11 +3,13 @@ export type Service = {
   title: string;
   description: string;
   icon: string; // emoji or icon name
+  tagline: string; // short punchy line shown on the homepage cards
 };
 
 export const services: Service[] = [
   {
     id: "brand-identity",
+    tagline: "Look unforgettable",
     title: "Brand Identity & Design",
     description:
       "We craft distinctive visual identities  logos, color systems, typography, and design language  that make your brand instantly recognizable and unforgettable.",
@@ -15,6 +17,7 @@ export const services: Service[] = [
   },
   {
     id: "paid-marketing",
+    tagline: "Spend smart, grow fast",
     title: "Paid Marketing & Analytics",
     description:
       "Data-driven paid media campaigns across Facebook, Instagram, and beyond. We optimize spend, track every metric, and turn ad budgets into measurable growth.",
@@ -22,6 +25,7 @@ export const services: Service[] = [
   },
   {
     id: "campaign-planning",
+    tagline: "Idea to launch to results",
     title: "Campaign Planning & Execution",
     description:
       "End-to-end campaign strategy built around your goals  from concept and creative to launch, management, and results reporting.",
@@ -35,6 +39,7 @@ export const services: Service[] = [
   // },
   {
     id: "visual-storytelling",
+    tagline: "Stop the scroll",
     title: "Visual Storytelling",
     description:
       "Short-form reels, graphics, and photography that stop the scroll. We produce content that earns millions of views and turns viewers into customers.",
@@ -42,6 +47,7 @@ export const services: Service[] = [
   },
   {
     id: "social-media-management",
+    tagline: "Always on, always on-brand",
     title: "Social Media Management",
     description:
       "Full-service management of your social presence  content calendars, posting, community engagement, and performance monitoring across all platforms.",
@@ -49,6 +55,7 @@ export const services: Service[] = [
   },
   {
     id: "influencer-community",
+    tagline: "Reach that feels real",
     title: "Influencer & Community Activation",
     description:
       "Strategic influencer partnerships and community-building initiatives that extend your reach, build trust, and create authentic buzz around your brand.",

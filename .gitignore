@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# original uncompressed reels (kept locally, not deployed)
+/source-reels/

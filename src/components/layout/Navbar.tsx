@@ -77,10 +77,10 @@ export function Navbar() {
               </Link>
             ))}
             <Link
-              href="/contact"
+              href="/book"
               className="ml-4 px-4 py-2 rounded-full bg-brand-bright text-white text-sm font-semibold hover:bg-brand-glow transition-colors duration-200"
             >
-              Get Started
+              Book a Call
             </Link>
           </nav>
 
@@ -151,11 +151,11 @@ export function Navbar() {
                 className="mt-8"
               >
                 <Link
-                  href="/contact"
+                  href="/book"
                   onClick={closeDrawer}
                   className="inline-flex px-6 py-3 rounded-full bg-brand-bright text-white font-semibold text-lg hover:bg-brand-glow transition-colors"
                 >
-                  Get Started
+                  Book a Call
                 </Link>
               </motion.div>
             </nav>

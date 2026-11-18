@@ -9,6 +9,10 @@ export const site = {
     instagram: "https://www.instagram.com/grinscreen.digital/",
     linkedin: "https://www.linkedin.com/company/grinscreendigital/",
   },
+  booking: {
+    // Calendly scheduling page (30-minute call)
+    url: "https://calendly.com/grinscreen/30min",
+  },
   contact: {
     email: "contactgrinscreen@gmail.com",
     phone: "01886-189297",

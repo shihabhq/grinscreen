@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
+import Link from "next/link";
 import { Reveal } from "@/components/ui/Reveal";
 import { site } from "@/data/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Contact",
   description:
-    "Get in touch with Grinscreen Digital  call, WhatsApp, or email us.",
-};
+    "Start a project with Grinscreen Digital. Email, call or WhatsApp our Bangladesh digital marketing team for reels, campaigns, ads and brand management.",
+  path: "/contact",
+});
 
 const phone = "01886189297";
 const phoneDisplay = "01886-189297";
@@ -72,17 +75,41 @@ const socialLinks = [
   {
     label: "Facebook",
     href: site.socials.facebook,
-    handle: "@GrinScreenDigital",
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 3.9v2.3H7.9v3h2.6V21h3z" />
+      </svg>
+    ),
   },
   {
     label: "Instagram",
     href: site.socials.instagram,
-    handle: "@grinscreen.digital",
+    icon: (
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        aria-hidden="true"
+      >
+        <rect x="3" y="3" width="18" height="18" rx="5" />
+        <circle cx="12" cy="12" r="4" />
+        <circle cx="17.5" cy="6.5" r="0.6" fill="currentColor" />
+      </svg>
+    ),
   },
   {
     label: "LinkedIn",
     href: site.socials.linkedin,
-    handle: "Grinscreen Digital",
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M4.5 9h3v10.5h-3V9zM6 4.3a1.8 1.8 0 1 1 0 3.6 1.8 1.8 0 0 1 0-3.6zM9.8 9h2.9v1.4c.4-.8 1.4-1.7 3-1.7 3.1 0 3.8 2 3.8 4.7v6.1h-3v-5.4c0-1.3 0-2.9-1.8-2.9s-2 1.4-2 2.8v5.5h-3V9z" />
+      </svg>
+    ),
   },
 ];
 
@@ -109,6 +136,26 @@ export default function ContactPage() {
             Reach out via email, phone, or WhatsApp we&apos;re quick to respond
             and ready to help your brand grow.
           </p>
+        </Reveal>
+
+        {/* Book a call */}
+        <Reveal>
+          <div className="mb-10 flex flex-col gap-5 rounded-2xl border border-brand-bright/30 bg-surface p-7 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <p className="font-display text-xl font-semibold text-fg">
+                Prefer to talk? Book a free 30-minute call.
+              </p>
+              <p className="mt-1 text-sm text-fg-muted">
+                Pick a time that suits you. We&apos;ll send a Google Meet link.
+              </p>
+            </div>
+            <Link
+              href="/book"
+              className="inline-flex shrink-0 justify-center rounded-full bg-brand-bright px-7 py-3.5 font-semibold text-white transition-colors duration-200 hover:bg-brand-glow"
+            >
+              Book a Call
+            </Link>
+          </div>
         </Reveal>
 
         {/* Contact method cards */}
@@ -155,26 +202,18 @@ export default function ContactPage() {
           <p className="font-mono text-brand-bright text-xs uppercase tracking-widest mb-8">
             Follow Us
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div className="flex flex-wrap gap-4">
             {socialLinks.map((social, i) => (
               <Reveal key={social.label} delay={i * 0.06}>
                 <a
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center justify-between p-5 rounded-xl border border-border hover:border-brand-bright/40 hover:bg-surface transition-all duration-300"
+                  aria-label={`Grinscreen Digital on ${social.label}`}
+                  title={social.label}
+                  className="flex h-16 w-16 items-center justify-center rounded-xl border border-border bg-surface-2 text-fg transition-all duration-300 hover:-translate-y-1 hover:border-brand-bright hover:bg-brand hover:text-white hover:shadow-[0_0_24px_-4px_var(--color-brand-glow)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-glow"
                 >
-                  <div>
-                    <p className="font-display font-semibold text-fg text-base group-hover:text-brand-bright transition-colors duration-200">
-                      {social.label}
-                    </p>
-                    <p className="text-fg-muted text-sm mt-0.5">
-                      {social.handle}
-                    </p>
-                  </div>
-                  <span className="text-fg-muted group-hover:text-brand-bright transition-colors duration-200 text-xl">
-                    ↗
-                  </span>
+                  {social.icon}
                 </a>
               </Reveal>
             ))}

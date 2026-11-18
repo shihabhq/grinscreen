@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "motion/react";
 import Image from "next/image";
+import { LazyVideo } from "@/components/media/LazyVideo";
 
 /* ─── Types ──────────────────────────────────────────────────── */
 
@@ -22,9 +23,20 @@ type CaseStudy = {
   campaign: string;
   duration: string;
   pillars: string[];
+  /** Heading above the pillars list (defaults to "The Strategy"). */
+  pillarsTitle?: string;
+  problem?: string;
+  idea?: string;
+  community?: string;
   stats: Stat[];
   insight: string;
+  /** Visual strip shown beside the numbers. Swap files here to change it. */
+  visuals: Visual[];
 };
+
+type Visual =
+  | { kind: "image"; src: string; alt: string }
+  | { kind: "reel"; src: string; poster: string; alt: string };
 
 /* ─── Data ───────────────────────────────────────────────────── */
 
@@ -36,22 +48,33 @@ const caseStudies: CaseStudy[] = [
     logo: { src: "/clients/arabika-coffee.png", alt: "Arabika Coffee" },
     tagline: "For the Campus,\nBy the Campus.",
     description:
-      "Arabika's brand awareness was always there — but it was unnoticed, uninformed, unpopular. We set out to change that. Over 7 months we made Arabika the brand the whole campus actually talked about, through content that felt native, not advertised.",
-    campaign: "Campus Awareness Campaign",
-    duration: "7 Months",
+      "Few students knew Arabika Campus existed. We gave it a face, a voice, and a student crowd. Now it's where everyone meets.",
+    campaign: "Arabika Campus x Grinscreen",
+    duration: "11 Months",
+    problem:
+      "Students didn't know Campus was there. And they thought Arabika was too expensive for them.",
+    idea: "Students skip ads. They watch their friends.",
+    pillarsTitle: "What We Did",
     pillars: [
-      "Target the whole campus — not just buyers, but the culture",
-      "Platform-native content that felt organic, not branded",
-      "Consistent presence that built genuine community over time",
+      "Put real BRAC students on camera",
+      "Used student jokes and student language",
+      "Showed the low student prices clearly",
+      "Posted every week, from day one",
     ],
+    community:
+      "Customers became creators. Creators became regulars. Regulars brought their friends.",
     stats: [
-      { value: "30M+", label: "Total Views", sub: "across all campaign content" },
-      { value: "150K+", label: "Interactions", sub: "likes, comments & shares" },
-      { value: "7", label: "Months", sub: "of sustained content strategy" },
-      { value: "0 → All", label: "Campus Reach", sub: "from unnoticed to unmissable" },
+      { value: "60M+", label: "Total Views", sub: "across Facebook & Instagram" },
+      { value: "300K+", label: "Interactions", sub: "likes, comments & shares" },
+      { value: "$0", label: "Ad Spend", sub: "100% organic" },
+      { value: "11", label: "Months", sub: "of posting non-stop" },
     ],
-    insight:
-      "30 million views in 7 months — proof that consistent, campus-native content builds the kind of community no ad budget can buy outright.",
+    insight: "60M views. Zero ad spend. Friends beat ads.",
+    visuals: [
+      { kind: "reel", src: "/reels/reel-1-2.mp4", poster: "/reels/posters/reel-1-2.jpg", alt: "Arabika campus reel" },
+      { kind: "reel", src: "/reels/reel-1.mp4", poster: "/reels/posters/reel-1.jpg", alt: "Arabika coffee reel" },
+      { kind: "reel", src: "/reels/ambience.mp4", poster: "/reels/posters/ambience.jpg", alt: "Arabika ambience reel" },
+    ],
   },
   {
     id: "wooking",
@@ -76,6 +99,11 @@ const caseStudies: CaseStudy[] = [
     ],
     insight:
       "Sales nearly doubled because the audience was already warm. The activation didn't need to create demand — it just needed to capture it.",
+    visuals: [
+      { kind: "image", src: "/statics/wooking-2.webp", alt: "Wooking Street static: the only +2 I will accept" },
+      { kind: "image", src: "/statics/wooking-3.webp", alt: "Wooking Street static: Woking Street chat" },
+      { kind: "image", src: "/statics/wooking-4.webp", alt: "Wooking Street static: appetizer platter" },
+    ],
   },
 ];
 
@@ -104,6 +132,51 @@ function StatCard({ stat, delay }: { stat: Stat; delay: number }) {
         <p className="font-mono text-fg-muted text-xs mt-1 leading-snug">{stat.sub}</p>
       )}
     </motion.div>
+  );
+}
+
+/* ─── Visual strip ──────────────────────────────────────────── */
+
+function VisualStrip({ visuals, inView }: { visuals: Visual[]; inView: boolean }) {
+  const tilt = ["-rotate-2", "", "rotate-2"];
+  const lift = ["mt-4", "-mt-2", "mt-4"];
+  return (
+    <div className="relative mb-12">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-6 inset-y-6 rounded-full blur-3xl opacity-30"
+        style={{ background: "radial-gradient(closest-side, var(--color-brand), transparent)" }}
+      />
+      <div className="relative grid grid-cols-3 gap-3 sm:gap-4">
+        {visuals.map((v, i) => (
+          <motion.div
+            key={v.src}
+            initial={{ opacity: 0, y: 30 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.2 + i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+            className={`${lift[i % 3]}`}
+          >
+            <div
+              className={`${tilt[i % 3]} overflow-hidden rounded-xl border border-border bg-surface shadow-[0_20px_50px_-20px_rgba(0,0,0,0.8)] transition-all duration-500 hover:rotate-0 hover:scale-[1.04] hover:border-brand-bright/50`}
+            >
+              {v.kind === "reel" ? (
+                <LazyVideo src={v.src} poster={v.poster} title={v.alt} />
+              ) : (
+                <div className="relative aspect-[4/5]">
+                  <Image
+                    src={v.src}
+                    alt={v.alt}
+                    fill
+                    sizes="(min-width: 1024px) 18vw, 30vw"
+                    className="object-cover"
+                  />
+                </div>
+              )}
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </div>
   );
 }
 
@@ -182,10 +255,32 @@ function CaseStudyBlock({ cs }: { cs: CaseStudy }) {
               </div>
             </div>
 
+            {/* Problem / Idea */}
+            {(cs.problem || cs.idea) && (
+              <div className="mb-12 grid gap-8 sm:grid-cols-2">
+                {cs.problem && (
+                  <div>
+                    <p className="font-mono text-xs uppercase tracking-widest text-brand-bright mb-3">
+                      The Problem
+                    </p>
+                    <p className="text-fg-muted text-sm leading-relaxed">{cs.problem}</p>
+                  </div>
+                )}
+                {cs.idea && (
+                  <div>
+                    <p className="font-mono text-xs uppercase tracking-widest text-brand-bright mb-3">
+                      The Idea
+                    </p>
+                    <p className="text-fg-muted text-sm leading-relaxed">{cs.idea}</p>
+                  </div>
+                )}
+              </div>
+            )}
+
             {/* Strategy pillars */}
             <div>
               <p className="font-mono text-xs uppercase tracking-widest text-fg-muted mb-5">
-                The Strategy
+                {cs.pillarsTitle ?? "The Strategy"}
               </p>
               <ol className="space-y-4">
                 {cs.pillars.map((pillar, i) => (
@@ -210,6 +305,15 @@ function CaseStudyBlock({ cs }: { cs: CaseStudy }) {
                 ))}
               </ol>
             </div>
+
+            {cs.community && (
+              <div className="mt-12">
+                <p className="font-mono text-xs uppercase tracking-widest text-brand-bright mb-3">
+                  The Community
+                </p>
+                <p className="text-fg text-sm leading-relaxed">{cs.community}</p>
+              </div>
+            )}
           </motion.div>
 
           {/* Right column: numbers */}
@@ -218,6 +322,8 @@ function CaseStudyBlock({ cs }: { cs: CaseStudy }) {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
           >
+            <VisualStrip visuals={cs.visuals} inView={inView} />
+
             <p className="font-mono text-xs uppercase tracking-widest text-fg-muted mb-5">
               The Numbers
             </p>
