@@ -28,12 +28,20 @@ export function CTA() {
             Tell us about your brand. We&apos;ll handle the rest strategy,
             content, distribution, and results.
           </p>
-          <Link
-            href="/contact"
-            className="inline-flex px-8 py-4 rounded-full bg-brand-bright text-white font-semibold text-lg hover:bg-brand-glow transition-colors duration-200"
-          >
-            Start a Project
-          </Link>
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <Link
+              href="/book"
+              className="inline-flex px-8 py-4 rounded-full bg-brand-bright text-white font-semibold text-lg hover:bg-brand-glow transition-colors duration-200"
+            >
+              Book a Free Call
+            </Link>
+            <Link
+              href="/contact"
+              className="inline-flex px-8 py-4 rounded-full border border-border text-fg font-medium text-lg hover:border-brand-bright/50 hover:text-brand-bright transition-colors duration-200"
+            >
+              Send a Message
+            </Link>
+          </div>
         </Reveal>
       </div>
     </section>

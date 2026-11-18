@@ -7,6 +7,7 @@ const navLinks = [
   { href: "/about", label: "About" },
   { href: "/portfolio", label: "Portfolio" },
   { href: "/contact", label: "Contact" },
+  { href: "/book", label: "Book a Call" },
 ];
 
 export function Footer() {
