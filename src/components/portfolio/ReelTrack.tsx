@@ -13,6 +13,21 @@ import {
 import { LazyVideo } from "@/components/media/LazyVideo";
 import { reels, type Reel } from "@/data/reels";
 
+/** Always-visible caption: brand + one-line tagline (not hover-only, so it works on touch). */
+function ReelCaption({ reel }: { reel: Reel }) {
+  if (!reel.tagline) return null;
+  return (
+    <span className="mt-3 block px-1 text-left">
+      <span className="block font-display text-sm font-semibold text-fg">
+        {reel.title}
+      </span>
+      <span className="mt-0.5 block text-xs leading-snug text-fg-muted">
+        {reel.tagline}
+      </span>
+    </span>
+  );
+}
+
 // ─── Desktop reel card ────────────────────────────────────────────────────────
 // `mounted`  controls whether the <video> element exists in the DOM at all.
 // `playing`  controls whether it is currently playing.
@@ -110,17 +125,10 @@ function DesktopReelCard({
           />
         )}
       </div>
+      <ReelCaption reel={reel} />
 
       {/* Hover: dark veil */}
       <div className="pointer-events-none absolute inset-0 bg-black/25 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-
-      {/* Hover: title strip */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 to-transparent p-3 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-        <p className="truncate font-mono text-xs text-white">{reel.title}</p>
-        {reel.client && (
-          <p className="font-mono text-xs text-white/55">{reel.client}</p>
-        )}
-      </div>
 
       {/* Hover: expand icon */}
       <div className="pointer-events-none absolute right-3 top-3 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
@@ -310,6 +318,7 @@ export function ReelTrack() {
                   poster={reel.poster}
                   title={reel.title}
                 />
+                <ReelCaption reel={reel} />
               </button>
             ))}
             <div className="flex-none w-6" />
@@ -365,6 +374,7 @@ export function ReelTrack() {
                 poster={reel.poster}
                 title={reel.title}
               />
+              <ReelCaption reel={reel} />
             </button>
           ))}
           <div className="flex-none w-6" />
@@ -430,9 +440,9 @@ export function ReelTrack() {
                 <p className="font-display font-semibold text-white text-sm">
                   {selectedReel.title}
                 </p>
-                {selectedReel.client && (
-                  <p className="mt-0.5 font-mono text-xs text-white/50">
-                    {selectedReel.client}
+                {selectedReel.tagline && (
+                  <p className="mt-0.5 text-sm text-white/60">
+                    {selectedReel.tagline}
                   </p>
                 )}
               </div>
